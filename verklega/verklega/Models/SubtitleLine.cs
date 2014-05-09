@@ -14,5 +14,6 @@ namespace verklega.Models
         public virtual Subtitle Subtitle { get; set; }
         public string Start { get; set; }
         public string Duration { get; set; }
+        public string SLText { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace verklega.Controllers
         public ActionResult AddSubtitle()
         {
             return View();
-    as
         }
         public ActionResult EditSubtitle()
         {

@@ -6,11 +6,11 @@
     <edmx:Diagrams>
       <Diagram DiagramId="71681686ddf34303b64081f69d708173" Name="Diagram1">
         <EntityTypeShape EntityType="VERK014_H36Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VERK014_H36Model.Languages" Width="1.5" PointX="7" PointY="1.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.Languages" Width="1.5" PointX="7" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="VERK014_H36Model.LineTranslations" Width="1.5" PointX="3.625" PointY="3.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="VERK014_H36Model.Requests" Width="1.5" PointX="3.75" PointY="0.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.Requests" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VERK014_H36Model.SubtitleLines" Width="1.5" PointX="3.875" PointY="2.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="VERK014_H36Model.Subtitles" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.Subtitles" Width="1.5" PointX="4.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VERK014_H36Model.Users" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="false" />
         <AssociationConnector Association="VERK014_H36Model.FK_dbo_Languages_dbo_Requests_ID" ManuallyRouted="false" />
         <AssociationConnector Association="VERK014_H36Model.FK_dbo_LineTranslations_dbo_Languages_L_ID" ManuallyRouted="false" />

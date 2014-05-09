@@ -9,7 +9,7 @@ namespace verklega.Models
     public class Request
     {
         public int ID { get; set; }
-        public int U_ID { get; set; }
+        public string U_ID { get; set; }
         [ForeignKey("U_ID")]
         public virtual User User { get; set; }
         public int S_ID { get; set; }
