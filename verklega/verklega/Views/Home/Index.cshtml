@@ -20,10 +20,14 @@
             <option value="1">N&#253;legt</option>
             <option value="2">Vins&#230;lt</option>
         </select>
-        <input type="button" id="leita" value="Leita" /></input>
+        @Html.ActionLink("Leita", "SearchSubtitle", "Subtitle")
         <br />
+        @Html.ActionLink("Skoða beiðni", "ViewRequest", "Request")
+        @Html.ActionLink("Setja inn Skjátexta", "AddSubtitle", "Subtitle")
+     <!--   
         <input type="button" id="ViewRequest" value="Sko&#240;a bei&#240;ni"/></input>
-        <input type="button" id="MakeRequest" value="Setja inn skj&#225;texta"/></input>
-    </div>
+        <input type="button" id="AddSubtitle" value="Setja inn skj&#225;texta"/></input>
+    -->
+     </div>
 </body>
 </html>
