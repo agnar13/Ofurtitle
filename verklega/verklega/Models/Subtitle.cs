@@ -9,7 +9,7 @@ namespace verklega.Models
     public class Subtitle
     {
         public int ID { get; set; }
-        public int U_ID { get; set; }
+        public string U_ID { get; set; }
         [ForeignKey("U_ID")]
         public virtual User User { get; set; }
         //public User User { get; set; }
