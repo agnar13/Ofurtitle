@@ -24,11 +24,11 @@ namespace verklega.Controllers
         }
         public ActionResult SearchSubtitle()
         {
-            return SearchSubtitle();
+            return View();
         }
         public ActionResult ViewSubtitle()
         {
-            return ViewSubtitle();
+            return View();
         }
 	}
 }
