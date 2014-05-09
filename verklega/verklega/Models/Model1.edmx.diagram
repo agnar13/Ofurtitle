@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="71681686ddf34303b64081f69d708173" Name="Diagram1">
+        <EntityTypeShape EntityType="VERK014_H36Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VERK014_H36Model.Languages" Width="1.5" PointX="7" PointY="1.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.LineTranslations" Width="1.5" PointX="3.625" PointY="3.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.Requests" Width="1.5" PointX="3.75" PointY="0.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.SubtitleLines" Width="1.5" PointX="3.875" PointY="2.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.Subtitles" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="VERK014_H36Model.Users" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_Languages_dbo_Requests_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_LineTranslations_dbo_Languages_L_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_Subtitles_dbo_Languages_L_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_LineTranslations_dbo_SubtitleLines_SL_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_LineTranslations_dbo_Users_U_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_Requests_dbo_Subtitles_S_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_Requests_dbo_Users_U_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_SubtitleLines_dbo_Subtitles_S_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="VERK014_H36Model.FK_dbo_Subtitles_dbo_Users_U_ID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
