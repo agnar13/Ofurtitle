@@ -17,7 +17,7 @@ namespace verklega.Controllers
         public ActionResult AddSubtitle()
         {
             return View();
-            bætti við línu muhahaha
+            Gaur. Fokkaðu þér.
         }
         public ActionResult EditSubtitle()
         {
