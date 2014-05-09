@@ -17,7 +17,7 @@ namespace verklega.Controllers
         public ActionResult AddSubtitle()
         {
             return View();
-            Gaur. Fokkaðu þér.
+            stuff stuff
         }
         public ActionResult EditSubtitle()
         {
