@@ -17,18 +17,7 @@ namespace verklega.Controllers
         public ActionResult AddSubtitle()
         {
             return View();
-<<<<<<< HEAD
-            ekkert stuff
-                fleira dót
-                    jibbí
-=======
-            ImSoConfused
->>>>>>> b547c9bedb4089360ac67f002a4d32cdc34bbf0d
-asdasd
     as
-    decimalasd
-
-    asd
         }
         public ActionResult EditSubtitle()
         {
