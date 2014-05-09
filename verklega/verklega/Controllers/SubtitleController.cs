@@ -16,11 +16,11 @@ namespace verklega.Controllers
         }
         public ActionResult AddSubtitle()
         {
-            return AddSubtitle();
+            return View();
         }
         public ActionResult EditSubtitle()
         {
-            return EditSubtitle();
+            return View();
         }
         public ActionResult SearchSubtitle()
         {
