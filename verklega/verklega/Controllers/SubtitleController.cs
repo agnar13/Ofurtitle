@@ -12,7 +12,7 @@ namespace verklega.Controllers
         // GET: /Subtitle/
         public ActionResult Index()
         {
-            rasdasdasdasd
+            return View();
         }
         public ActionResult AddSubtitle()
         {
