@@ -11,7 +11,6 @@ namespace verklega.Controllers
         public ActionResult Index()
         {
             return View();
-            xxxyyyy
         }
 
         public ActionResult About()
