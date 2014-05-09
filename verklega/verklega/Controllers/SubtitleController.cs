@@ -17,7 +17,9 @@ namespace verklega.Controllers
         public ActionResult AddSubtitle()
         {
             return View();
-            stuff stuff
+            ekkert stuff
+                fleira dót
+                    jibbí
         }
         public ActionResult EditSubtitle()
         {
