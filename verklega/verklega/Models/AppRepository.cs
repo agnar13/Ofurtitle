@@ -17,7 +17,6 @@ namespace verklega.Models
         // added
         public void Add(Language language)
         {
-           
             m_db.Languages.Add(language);
             m_db.SaveChanges();
         }

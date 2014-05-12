@@ -1,4 +1,4 @@
-﻿@model IEnumerable<verklega.Models.Language>
+﻿@model IEnumerable<verklega.Models.Subtitle>
 
 @{
     ViewBag.Title = "About";
@@ -9,13 +9,16 @@
 <p>Use this area to provide additional information.</p>
 
 
+
 <ul>
-    @foreach (var lang in Model)
+    @foreach (var sub in Model)
     {
-        <li>@lang.TextLanguage</li>
+        <li>@sub.Subtitle</li>
     }
     }
+    
 </ul>
+
 
 
 
