@@ -14,15 +14,15 @@ namespace verklega.Controllers
     {
         //private VERK014_H36Entities db = new VERK014_H36Entities();
          //private ISubtitleRepository m_repository = null;
-        //private ISubtitleRepository db = null;
+        
         private ISubtitleRepository subRepo;
 
          public SubtitleController()
         {
            // m_repository = new Repository();
             //this.db = new SubtitleRepository(new AppDataContext);
+
             this.subRepo = new SubtitleRepository(new AppDataContext());
-            //this.db = new SubtitleRepository(new AppDataContext());
         }
 
          public SubtitleController(ISubtitleRepository subRepo)
@@ -74,7 +74,7 @@ namespace verklega.Controllers
             if (ModelState.IsValid)
             {
                 subRepo.Insert(subtitles);
-                subRepo.SaveChanges();
+                //subRepo.SaveChanges();
                 return RedirectToAction("Index");
             }
 

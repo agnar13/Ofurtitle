@@ -5,7 +5,7 @@ using System.Web;
 
 namespace verklega.Models
 {
-    public class SubtitleRepository : ISubtitleRepository, IDisposable
+    public class SubtitleRepository : ISubtitleRepository
     {
         //private AppDataContext s_db = new AppDataContext();
         private AppDataContext context;
@@ -17,7 +17,6 @@ namespace verklega.Models
 
         public IEnumerable<Subtitle> GetSubtitles()
         {
-            //return s_db.Subtitles;
             return context.Subtitles.ToList();
         }
 

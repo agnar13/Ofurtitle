@@ -9,14 +9,14 @@ using verklega.Models;
 
 namespace verklega.Models
 {
-    public interface ISubtitleRepository : IDisposable
+    public interface ISubtitleRepository
     {
         IEnumerable<Subtitle> GetSubtitles();
         Subtitle GetSubtitleByID(int id);
         void Insert(Subtitle subtitle);
         //void Update(Subtitle subtitle);
         void Remove(int id);
-        void SaveChanges();
+        //void SaveChanges();
 
         /*
         void Create(Subtitle subtitle);
