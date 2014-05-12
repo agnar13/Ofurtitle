@@ -16,7 +16,7 @@ namespace verklega.Models
         void Insert(Subtitle subtitle);
         //void Update(Subtitle subtitle);
         void Remove(int id);
-        //void SaveChanges();
+        
 
         /*
         void Create(Subtitle subtitle);
