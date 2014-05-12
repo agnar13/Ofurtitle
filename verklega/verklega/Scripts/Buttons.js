@@ -1,5 +1,8 @@
-﻿$('#ViewRequest').click(function ()
+﻿$("#AddSubtitle").click( function( )
 {
-    location.href = '@Url.Action("ViewRequest", "ViewRequest", new { id = ViewRequest})';
+    var submit = {
+        "AddSub":$("Addsub").val(),
+};
 }
-);
+
+)
