@@ -1,4 +1,7 @@
-﻿@{
+﻿@model IEnumerable<verklega.Models.Language>
+
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -25,5 +28,15 @@
         <input type="button" id="ViewRequest" value="Sko&#240;a bei&#240;ni" /></input>
         <input type="button" id="MakeRequest" value="Setja inn skj&#225;texta" /></input>
     </div>
+
+    <ul>
+        @foreach (var lang in Model)
+        {
+            <li>@lang.TextLanguage</li>
+        }
+        }
+    </ul>
+
+
 </body>
 </html>
