@@ -243,14 +243,5 @@ namespace verklega.Controllers
             return View();
         }
 
-        public ActionResult SearchSubtitle()
-        {
-            return View();
-        }
-        public ActionResult ViewSubtitle()
-        {
-            return View();
-        }
-
     }
 }
