@@ -18,15 +18,13 @@ namespace verklega.Controllers
 
     public class SubtitleController : Controller
     {
-        //private VERK014_H36Entities db = new VERK014_H36Entities();
-         //private ISubtitleRepository m_repository = null;
         
+        // Controller talks to Interface. Interface talks to Repository. Repository talks to database.
+        // an instance of subRepo is declared??
         private ISubtitleRepository subRepo;
 
          public SubtitleController()
         {
-           // m_repository = new Repository();
-            //this.db = new SubtitleRepository(new AppDataContext);
 
             this.subRepo = new SubtitleRepository(new AppDataContext());
         }
@@ -40,8 +38,10 @@ namespace verklega.Controllers
         // GET: /Subtitle/
         public ActionResult Index()
         {
+                                         // GetSubtitles returns a list of Subtitles
             var showsubtitles = from Title in subRepo.GetSubtitles()
                             select Title;
+            // the list is sent to view
             return View(showsubtitles.ToList());
             //return View();
         }
@@ -129,7 +129,7 @@ namespace verklega.Controllers
         */
         
 
-
+        /*
         // GET: /Subtitle/Delete/5
         public ActionResult Delete(int id)
         {
@@ -145,6 +145,7 @@ namespace verklega.Controllers
             }
             return View(subtitle);
         }
+         */
 
 
         /*
@@ -199,7 +200,8 @@ namespace verklega.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(HttpPostedFileBase file)
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateSub(HttpPostedFileBase file)
         {
 
             if (file.ContentLength > 0)
@@ -217,6 +219,9 @@ namespace verklega.Controllers
 
         public ActionResult SearchSubtitle()
         {
+            /*var showsubtitles = from Title in subRepo.GetSubtitles()
+                                select Title;
+            return View(showsubtitles.ToList());*/
             return View();
         }
         public ActionResult ViewSubtitle()

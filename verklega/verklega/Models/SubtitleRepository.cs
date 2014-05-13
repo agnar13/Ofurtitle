@@ -35,8 +35,7 @@ namespace verklega.Models
 
         public void Remove(int id)
         {
-            //s_db.Subtitles.Remove(subtitle);
-            //s_db.SaveChanges();
+            
             Subtitle sub = context.Subtitles.Find(id);
             context.Subtitles.Remove(sub);
             context.SaveChanges();
@@ -46,6 +45,11 @@ namespace verklega.Models
         {
             //context.Entry(subtitle).State = 
             
+        }
+
+        public void SearchSub(string subTitle)
+        {
+            Subtitle subs = context.Subtitles.Find(subTitle);
         }
     }
 }

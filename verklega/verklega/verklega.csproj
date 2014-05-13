@@ -182,10 +182,12 @@
     <Compile Include="Models\AppRepository.cs" />
     <Compile Include="Models\IAppRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IRequestRepository.cs" />
     <Compile Include="Models\ISubtitleRepository.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\LineTranslation.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\RequestRepository.cs" />
     <Compile Include="Models\Subtitle.cs" />
     <Compile Include="Models\SubtitleLine.cs" />
     <Compile Include="Models\SubtitleRepository.cs" />
