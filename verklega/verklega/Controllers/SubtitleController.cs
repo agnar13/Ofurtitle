@@ -167,28 +167,41 @@ namespace verklega.Controllers
             base.Dispose(disposing);
         }*/
         private IEnumerable<ParseResult> Parse(string content)
+        //Creates a countable list out of the content.
         {
             string[] segments = content.Split(new string[] { "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            //Creates a new linked array of strings where each string is one line.
             List<ParseResult> result = new List<ParseResult>();
-
+            //
             foreach (string segment in segments)
             {
                 string[] segmentParts = segment.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                //Creates an array called segmentParts. Plits the contents of segment into four different lines.
+                //Also makes sure that the result does not contain an empty string.
+                //Puts the split segment into the created array "segmentParts"
                 if (segmentParts.Length >= 3)
+                //Makes sure that the split content is not less than 3 lines.
                 {
                     ParseResult segmentResult = new ParseResult();
+                    //Creates the segmentResult that is an instance of ParseResult.
 
-                    //result.Number = segmentParts[0];
-                    //result.Start/Stop = segmentParts[1];
-
+                    segmentResult.Start = segmentParts[0];
+                    //segmentPart[0] is an instance of the number of the content.
+                    //Number is the element from the model class LineTranslation.
+                    segmentResult.Duration = segmentParts[1];
+                    //segmentPart[1] is an instance of The duration of the Content.
+                    //Duration is the element from the model class LineTranslation.
                     List<string> lines = new List<string>();
+                    //Creates a new strongly typed list
+
                     for (int i = 2; i < segmentParts.Length; i++)
                     {
                         LineTranslation line = new LineTranslation();
                         line.Text = segmentParts[i];
+                        //Puts segmentParts into line.
                         segmentResult.Lines.Add(line);
+                        //????
                     }
-
 
                     result.Add(segmentResult);
                 }
@@ -199,20 +212,35 @@ namespace verklega.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(HttpPostedFileBase file)
+        public ActionResult AddSubtitle(HttpPostedFileBase file)
         {
 
             if (file.ContentLength > 0)
+            //Ef skráinn inniheldur einhver gögn.
             {
-                //file.SaveAs(path);
+                //file.SaveAs(path); ( aðferð til að vista gögn locally)
                 byte[] buffer = new byte[file.ContentLength];
+                //Býr til buffer sem er jafn stór og skráin.
                 file.InputStream.Read(buffer, 0, file.ContentLength);
+                //Setur gögnin inn í buffer.
                 string result = System.Text.Encoding.UTF8.GetString(buffer);
+                //Breytir gögnunum í buffernum í streng.
 
                 Parse(result);
+                //Sendir gögnin í parse result.
             }
 
             return RedirectToAction("ViewSubtitle");
+            //Sends the content into the parser in ViewSubtitle.
+        }
+
+        public ActionResult SearchSubtitle()
+        {
+            return View();
+        }
+        public ActionResult ViewSubtitle()
+        {
+            return View();
         }
 
         public ActionResult SearchSubtitle()
