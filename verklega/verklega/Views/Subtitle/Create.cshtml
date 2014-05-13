@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Nýtt efni </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <h1>S&#237;&#240;an! </h1>
+    <div>
+        <input type="text" />
+        <select>
+            <option value="" disabled="disabled" selected="selected">Flokkar</option>
+            <option value="1">Kvikmyndir</option>
+            <option value="1">&#254;&#230;ttir</option>
+            <option value="1">N&#253;legt</option>
+            <option value="2">Vins&#230;lt</option>
+        </select>
+        @Html.ActionLink("Leita", "SearchSubtitle", "Subtitle")
+        <br />
+        @Html.ActionLink("Skoða beiðni", "ViewRequest", "Request")
+        @Html.ActionLink("Setja inn Skjátexta", "Create", "Subtitle")
+    </div>
+    <div>
+        <h2> Setja inn Skj&aacute;texta </h2>
+        <label for="Titill">Titill:	 </label>
+        <input type="text" id="Titill" name="Titill" /><br />
+        <select>
+            <option value="group">Flokkur</option>
+            <option value="child">Barnaefni</option>
+            <option value="flipp">Flipp</option>
+            <option value="fun">Gr&iacute;n</option>
+            <option value="etc">og svo framvegis</option>
+        </select><br />
+        <select>
+            <option value="group">Tungum&aacute;l</option>
+            <option value="child">&iacute;slenska</option>
+            <option value="flipp">enska</option>
+            <option value="fun">franska</option>
+            <option value="etc">og svo framvegis</option>
+        </select><br />
+        <label for="browse">skr&aacute; :	 </label>
+        <input type="text" id="AddSub" name="browse" />
+        <input type="button" id="Create" value="Leita af skr&aacute;" /><br />
+        <textarea rows="10" cols="50"></textarea>
+    </div>
+
+    <form action="" method="post" enctype="multipart/form-data">
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="Setja inn" id="ButtonSubmit"/>
+ <!--   if (ViewData["Success"] !="")
+    { <label> (Setja inn att merki hér) ViewData["Success"]</label>} -->
+} 
+    </form>
+    </body>
+</html>
