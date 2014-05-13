@@ -14,7 +14,7 @@ namespace verklega.Models
         IEnumerable<Subtitle> GetSubtitles();
         Subtitle GetSubtitleByID(int id);
         void Insert(Subtitle subtitle);
-        //void Update(Subtitle subtitle);
+        void Update(Subtitle subtitle);
         void Remove(int id);
         
 

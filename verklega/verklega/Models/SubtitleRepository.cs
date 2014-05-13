@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using verklega.Models;
 
 namespace verklega.Models
 {
@@ -39,11 +40,13 @@ namespace verklega.Models
             //s_db.SaveChanges();
             Subtitle sub = context.Subtitles.Find(id);
             context.Subtitles.Remove(sub);
+            context.SaveChanges();
         }
 
-        /*public void Edit(Subtitle subtitle)
+        public void Update(Subtitle subtitle)
         {
-            context.Entry(subtitle).State = 
-        }*/
+            //context.Entry(subtitle).State = 
+            
+        }
     }
 }
