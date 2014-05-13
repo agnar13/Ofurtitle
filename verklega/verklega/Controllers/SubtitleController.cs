@@ -91,21 +91,21 @@ namespace verklega.Controllers
 
         
         // GET: /Subtitle/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
 
-            if (id == null)
+            /*if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            }*/
             //Subtitle subtitle = subRepo.Subtitles.Find(id);
-            if (subRepo.GetSubtitleByID(id) == null)
+            /*if (subRepo.GetSubtitleByID(id) == null)
             {
                 return HttpNotFound();
-            }
+            }*/
             /*ViewBag.L_ID = new SelectList(db.Languages, "ID", "TextLanguage", subtitles.L_ID);
             ViewBag.U_ID = new SelectList(db.Users, "ID", "Name", subtitles.U_ID);*/
-            return View("Index");
+            return View();
         }
 
         // POST: /Subtitle/Edit/5
