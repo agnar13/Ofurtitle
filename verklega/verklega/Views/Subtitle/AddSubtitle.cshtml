@@ -44,5 +44,15 @@
         <input type="button" id="AddSubtitle" value="Leita af skr&aacute;" /><br />
         <textarea rows="10" cols="50"></textarea>
     </div>
-</body>
+
+    <form action="" method="post" enctype="multipart/form-data">
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="Setja inn" id="ButtonSubmit"/>
+ <!--   if (ViewData["Success"] !="")
+    { <label> (Setja inn att merki hér) ViewData["Success"]</label>} -->
+} 
+    </form>
+    </body>
 </html>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<verklega.Models.Subtitles>
+@{
     ViewBag.Title = "ViewSubtitle";
 }
 
@@ -26,7 +27,7 @@
         @Html.ActionLink("Setja inn Skjátexta", "AddSubtitle", "Subtitle")
     </div>
     <h2>Bangs&iacute;mon </h2>
-    <table>
+  <table>
         <tbody>
             <tr>
                 <td scope="row">Download:</td>
@@ -45,16 +46,16 @@
                 <td scope="row" id="Author">Something</td>
             </tr>
         </tbody>
-    </table>
+    </table> 
     <div>
-        <input type="button" id="Download" value="S&#230;kja" /></input>
-        <input type="button" id="Edit" value="Breyta" /></input><br />
+        <input type="button" id="Download" value="S&#230;kja" />
+        <input type="button" id="Edit" value="Breyta" /><br />
         <textarea id="TextArea" rows="4" cols="50"></textarea>
     </div>
     <h3> Umm&#230;li </h3>
     <div>
         insert comment author here plz
-        <input type="button" id="CommentReply" value="Breyta" /></input><br />
+        <input type="button" id="CommentReply" value="Breyta" /><br />
         <textarea id="ReplyComment" rows="3" cols="35"></textarea>
     </div>
 </body>

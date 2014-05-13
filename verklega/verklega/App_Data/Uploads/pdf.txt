@@ -1,0 +1,52 @@
+Verkefni 1.
+ýtti á windows takkan, 
+skrifaði inn notepad í leitar línunni, 
+enter til að komast inn í notepad, 
+skrifaði hallo í notepad skjalið, 
+ýtti á ctrl+s til að vista skjalið (það vistaðist í C:/new file)
+nefndi textaskjalið hallo.txt,
+ýtti aftur á windows takkan og skrifaði wind í leitarlínuna,
+ýtti á enter til að opna C:/library
+ýtti á backspace til að fara í desktop og þaðan inn í computer með örvatökkunum
+þaðan inn í c: drivið og þaðan inn í new folder þar sem hallo.txt skráin er.
+ýtti á shift+f10 til að opna context menu og r inni því til að komast í properties
+þar notaði ég örva takkana til að fara yfir read only og space til að toggla það
+
+til að opna google chrome ýti ég á windows takkan+5,
+address barinn er tilbúinn um leið fyrir mig til að skrifa í
+ég slæ inn ru.is og ýti á enter
+ýti á tab þangað til að ég er búin að highlighta fyrstu frættina
+ýti svo á ctrl+ enter til að opna í nýjum tab
+lokaði síðan tabinum sem ég var í (s.s. ekki sem ég var að opna) með því að ýta á ctrl+w
+
+ýti á windows takkan og skrifa micr (það er nóg því exel er efsti valmöguleikinn) í leitarlínuna
+það var í byrjun nú þegar maximizað
+ctrl+n til að gera nýja spreadsheet
+ctrl+pagedown til að fara í sheet nr.2
+
+það var í rauninni ekkert rosalega erfitt að komast af án þess að nota músina.
+Það eina sem ég vissi ekki hvað átti að gera var að opna context menu og fara á milli sheet-a í exel.
+
+Verkefni 2.
+         	 BMP	PNG	JPG	GIF
+Photograph	110	221	190	144
+Screenshot	76.1	78.5	85.6	78,2
+Cartoon  	77.0	311	78.9	41.8
+
+The results tell us that some formats are better suited for different kind of files.
+Photographs are best stored in a BMP format where it requires as little space aspossible.
+For Screenshots you should use BMP as well according to these results and for cartoons GIF format takes the least space.
+
+Verkefni 3.
+Með því að nota Hex editor sést grunnkóði hjá hverjum file. 
+Með því að skoða grunntölur eða the magic number í kóðanum sem er í byrjun hvers kóða sést formathvers files.
+File1.smu hefur með sér endinguna "FE FF" sem er grunnkóði fyrir unicode Text eða bara venjulegs text files.
+File2 hefur byrjunarkóðann  "FF D8" og endingarkóðann "FF D9" sem er kóði fyrir formatið JPEG format.
+File3 hefur byrjunina "89 50" sem er byrjun fyrir PNG formats.
+File4 hefur byrjunina "D0 CF" sem er magic kóði fyrir Word document.
+File5 hefur byrjunina "25 50 44 46" sem er byrjun fyrir pdf fila.
+File1.smu er File1.txt
+File2.smu er File2.JPEG
+File3.smu er File3.PNG
+File4.smu er File4.docx
+File5.smu er File5.pdf
