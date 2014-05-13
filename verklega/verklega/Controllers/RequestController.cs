@@ -16,7 +16,7 @@ namespace verklega.Controllers
         }
         public ActionResult ViewRequest()
         {
-            return ViewRequest();
+            return View();
         }
 	}
 }

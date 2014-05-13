@@ -6,11 +6,11 @@
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title> S&iacute;&eth;an </title>
+    <title> Uppfæra </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-    <h1> <img src="http://i.imgur.com/rxrixRQ.png" alt="Pulpit rock" width="100" height="75" /> S&#237;&#240;an! </h1>
+    <h1>S&#237;&#240;an! </h1>
     <div>
         <input type="text" />
         <select>
@@ -20,17 +20,18 @@
             <option value="1"> N&#253;legt </option>
             <option value="2"> Vins&#230;lt </option>
         </select>
-        <input type="button" id="leita" value="Leita" />
+        @Html.ActionLink("Leita", "SearchSubtitle", "Subtitle")
         <br />
-        <input type="button" id="ViewRequest" value="Sko&#240;a bei&#240;ni" />
-        <input type="button" id="MakeRequest" value="Setja inn skj&#225;texta" />
+        @Html.ActionLink("Skoða beiðni", "ViewRequest", "Request")
+        @Html.ActionLink("Setja inn Skjátexta", "Create", "Subtitle")
     </div>
     <h2> Bangsimon </h2>
     <div>
         <textarea rows="10" cols="40"></textarea>
         <br />
         <input type="button" id="Save" value="Vista" />
-        <input type="button" id="Cancel" value="H&#230;tta vi&#240;" />
+        @Html.ActionLink("Hætta við", "ViewSubtitle", "Subtitle")
+      <!--  <input type="button" id="Cancel" value="H&#230;tta vi&#240;" /> -->
     </div>
 </body>
 </html>

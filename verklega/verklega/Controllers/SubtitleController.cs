@@ -10,6 +10,12 @@ using verklega.Models;
 
 namespace verklega.Controllers
 {
+
+    public class ParseResult : SubtitleLine
+    {
+        public List<LineTranslation> Lines { get; set; }
+    }
+
     public class SubtitleController : Controller
     {
         //private VERK014_H36Entities db = new VERK014_H36Entities();
@@ -34,10 +40,10 @@ namespace verklega.Controllers
         // GET: /Subtitle/
         public ActionResult Index()
         {
-            //var subtitles = subRepo.Subtitles.Include(s => s.Languages).Include(s => s.Users);
             var showsubtitles = from Title in subRepo.GetSubtitles()
                             select Title;
             return View(showsubtitles.ToList());
+            //return View();
         }
 
 
@@ -160,6 +166,63 @@ namespace verklega.Controllers
             }
             base.Dispose(disposing);
         }*/
-       
+        private IEnumerable<ParseResult> Parse(string content)
+        {
+            string[] segments = content.Split(new string[] { "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            List<ParseResult> result = new List<ParseResult>();
+
+            foreach (string segment in segments)
+            {
+                string[] segmentParts = segment.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                if (segmentParts.Length >= 3)
+                {
+                    ParseResult segmentResult = new ParseResult();
+
+                    //result.Number = segmentParts[0];
+                    //result.Start/Stop = segmentParts[1];
+
+                    List<string> lines = new List<string>();
+                    for (int i = 2; i < segmentParts.Length; i++)
+                    {
+                        LineTranslation line = new LineTranslation();
+                        line.Text = segmentParts[i];
+                        segmentResult.Lines.Add(line);
+                    }
+
+
+                    result.Add(segmentResult);
+                }
+
+            }
+
+            return result;
+        }
+
+        [HttpPost]
+        public ActionResult Create(HttpPostedFileBase file)
+        {
+
+            if (file.ContentLength > 0)
+            {
+                //file.SaveAs(path);
+                byte[] buffer = new byte[file.ContentLength];
+                file.InputStream.Read(buffer, 0, file.ContentLength);
+                string result = System.Text.Encoding.UTF8.GetString(buffer);
+
+                Parse(result);
+            }
+
+            return RedirectToAction("ViewSubtitle");
+        }
+
+        public ActionResult SearchSubtitle()
+        {
+            return View();
+        }
+        public ActionResult ViewSubtitle()
+        {
+            return View();
+        }
+
     }
 }

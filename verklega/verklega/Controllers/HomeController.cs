@@ -44,13 +44,13 @@ namespace verklega.Controllers
             m_repository.Add(t);
             m_repository.SaveChanges();*/
 
-            Language bask = new Language { TextLanguage = "Basknenska" };
+            //Language bask = new Language { TextLanguage = "Basknenska" };
            // m_repository.Remove(bask);
             
-            var langs = from TextLanguage in m_repository.GetLanguages()
-                        select TextLanguage;
+            //var langs = from TextLanguage in m_repository.GetLanguages()
+                       // select TextLanguage;
 
-            return View( langs);
+            return View();
         }
 
         public ActionResult About()
@@ -58,10 +58,11 @@ namespace verklega.Controllers
             //ViewBag.Message = "Your application description page.";
             ViewBag.Message = "Insert into languages and show list";
 
+            /*
             Language italian = new Language { TextLanguage = "Italian" };
             var finnska = new Language { TextLanguage = "Finnska"};
             var danska = new Language { TextLanguage = "Danska" };
-
+            */
             
 
             //var appRep = new AppRepository();
@@ -83,14 +84,14 @@ namespace verklega.Controllers
             /*foreach (Language slang in m_repository.Find(p => p.ID > 0))
             {
                 Console.WriteLine("Name:{0}", slang.TextLanguage);
-            }*/
+            }
 
             var dangs = from TextLanguage in m_repository.GetLanguages()
                         select TextLanguage;
 
-            return View(dangs);
+            return View(dangs);*/
 
-            //return View();
+            return View();
         }
 
         public ActionResult Contact()

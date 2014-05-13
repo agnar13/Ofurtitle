@@ -28,8 +28,7 @@ namespace verklega.Models
 
         public void Insert(Subtitle subtitle)
         {
-            //s_db.Subtitles.Add(subtitle);
-            //s_db.SaveChanges();
+            // Add a new subtitle object to the Subtitles table
             context.Subtitles.Add(subtitle);
             context.SaveChanges();
         }
