@@ -8,6 +8,8 @@ namespace verklega.Models
 {
     public class RequestRepository : IRequestRepository
     {
+        // setup a connection to the database through AppDataContext
+
         private AppDataContext context;
 
         public RequestRepository(AppDataContext context)
@@ -35,5 +37,6 @@ namespace verklega.Models
             context.Requests.Add(request);
             context.SaveChanges();
         }
+
     }
 }

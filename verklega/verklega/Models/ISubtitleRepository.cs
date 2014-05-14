@@ -16,6 +16,9 @@ namespace verklega.Models
         void Insert(Subtitle subtitle);
         void Update(Subtitle subtitle);
         void Remove(int id);
+        void SearchSub(string subTitle);
+        void SaveChanges();
+        void InsertSLine(SubtitleLine subtitleline);
         
 
         /*
