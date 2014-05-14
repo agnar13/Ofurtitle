@@ -1,100 +1,12 @@
-﻿@{
+﻿@model IEnumerable<verklega.Models.Request>
+@{
     ViewBag.Title = "ViewRequest";
 }
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title> Skoða Beiðni </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
     <h1> S&#237;&#240;an!  </h1>
-    <div>
-        <input type="text" />
-        <select>
-            <option value="" disabled="disabled" selected="selected">Flokkar</option>
-            <option value="1">Kvikmyndir</option>
-            <option value="1">&#254;&#230;ttir</option>
-            <option value="1">N&#253;legt</option>
-            <option value="2">Vins&#230;lt</option>
-        </select>
-        @Html.ActionLink("Leita", "SearchSubtitle", "Subtitle")
-        <br />
-        @Html.ActionLink("Skoða beiðni", "ViewRequest", "Request")
-        @Html.ActionLink("Setja inn Skjátexta", "Create", "Subtitle")
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Flokkur</th>
-                <th scope="col">Nafn</th>
-                <th scope="col">Upvota&#240;</th>
-                <th scope="col">Tungum&#225;l</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-            <tr>
-                <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-                <td>Texti</td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
-
-
+    <ul>
+        @foreach (var ba in Model)
+        {
+            <li>@ba.ID</li>
+        }
+    </ul>

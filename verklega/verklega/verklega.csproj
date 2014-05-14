@@ -182,10 +182,12 @@
     <Compile Include="Models\AppRepository.cs" />
     <Compile Include="Models\IAppRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IRequestRepository.cs" />
     <Compile Include="Models\ISubtitleRepository.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\LineTranslation.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\RequestRepository.cs" />
     <Compile Include="Models\Subtitle.cs" />
     <Compile Include="Models\SubtitleLine.cs" />
     <Compile Include="Models\SubtitleRepository.cs" />
@@ -249,6 +251,7 @@
     <Content Include="Views\Subtitle\ViewSubtitle.cshtml" />
     <Content Include="Views\Subtitle\Details.cshtml" />
     <Content Include="Views\Subtitle\Index.cshtml" />
+    <Content Include="Views\Request\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

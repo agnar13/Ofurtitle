@@ -1,0 +1,15 @@
+﻿@model IEnumerable<verklega.Models.Request>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    @foreach (var ba in Model)
+    {
+        <li>@ba.ID</li>
+        <li>@ba.Subtitle.Title</li>
+    }
+</ul>
+
