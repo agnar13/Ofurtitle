@@ -41,7 +41,7 @@ namespace verklega.Models
             //context.SaveChanges();
         }
 
-        public void Update(Subtitle subtitle)
+        /*public void Update(Subtitle subtitle)
         {
             //context.Entry(subtitle).State = 
             
@@ -50,7 +50,7 @@ namespace verklega.Models
         public void SearchSub(string subTitle)
         {
             
-        }
+        }*/
 
         public void InsertSLine(SubtitleLine subtitleline)
         {

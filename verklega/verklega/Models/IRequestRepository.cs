@@ -13,7 +13,8 @@ namespace verklega.Models
         IEnumerable<Request> GetRequests();
         IEnumerable<Subtitle> GetTitle();
         IEnumerable<Language> GetLanguage();
-        void Insert(Request request);       
+        void Insert(Request request);
+        void SaveChanges();
     }
 }
 

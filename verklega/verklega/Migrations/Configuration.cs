@@ -59,7 +59,7 @@ namespace verklega.Migrations
                    S_ID = 1,
                    Start = "00:30:00",
                    Duration = "00:00:30",
-                   SLText = "Yippikayyay motherfucker"
+                   SLText = "Yippikayyay m..."
                },
                new SubtitleLine
                {
