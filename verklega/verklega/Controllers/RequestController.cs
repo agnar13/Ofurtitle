@@ -30,14 +30,22 @@ namespace verklega.Controllers
         // GET: /Request/
         public ActionResult Index()
         {                       // GetRequests returns a list of Requests
+           /* var showRequests = (from Req in reqRepo.GetRequests()
+                                join Title in reqRepo.GetTitle() on Req.S_ID equals Title.ID
+                                join Lang in reqRepo.GetLanguages() on Title.L_ID equals Lang.ID
+                                where Title.ID == Req.S_ID
+                                select Req).ToList();
+            return View(showRequests);*/
+
+            
             var ShowRequest = from ID in reqRepo.GetRequests()
                                 select ID;
             return View(ShowRequest.ToList());
         }
 
-        public ActionResult ViewRequest()
+        public ActionResult ViewRequest(List<string> listofString)
         {
-            return View();
+            return View(listofString);
         }
 
         public void Create(Request request)

@@ -30,7 +30,7 @@ namespace verklega.Models
         {
             // Add a new subtitle object to the Subtitles table
             context.Subtitles.Add(subtitle);
-            context.SaveChanges();
+            //context.SaveChanges();
         }
 
         public void Remove(int id)
@@ -38,7 +38,7 @@ namespace verklega.Models
             
             Subtitle sub = context.Subtitles.Find(id);
             context.Subtitles.Remove(sub);
-            context.SaveChanges();
+            //context.SaveChanges();
         }
 
         public void Update(Subtitle subtitle)
@@ -49,7 +49,17 @@ namespace verklega.Models
 
         public void SearchSub(string subTitle)
         {
-            Subtitle subs = context.Subtitles.Find(subTitle);
+            
+        }
+
+        public void InsertSLine(SubtitleLine subtitleline)
+        {
+            context.SubtitleLines.Add(subtitleline);
+        }
+
+        public void SaveChanges()
+        {
+            context.SaveChanges();
         }
     }
 }

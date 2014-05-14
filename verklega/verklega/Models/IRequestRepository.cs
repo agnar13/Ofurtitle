@@ -12,5 +12,7 @@ namespace verklega.Models
     {
         IEnumerable<Request> GetRequests();
         void Insert(Request request);
+
+        
     }
 }
