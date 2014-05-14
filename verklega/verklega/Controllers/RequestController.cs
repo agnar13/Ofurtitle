@@ -14,25 +14,6 @@ namespace verklega.Controllers
     {
 
         private IRequestRepository reqRepo;
-        //
-        // GET: /Request/
-
-        /*
-        var query = from ot in context.OTs
-                join v in context.Vehicles on ot.vehicle_id equals v.id
-                join c in context.Clients on v.client_id equals c.id
-                where c.Name == clientName
-                select new {ot, c};
-        /*
-        var beverages =
-            (from products in GetProducts()
-             join categories in GetCategories() on products.CategoryID equals categories.ID
-             where products.Name.StartsWith("G")
-             where categories.Name == "Beverages"
-             orderby products.Name
-             select products
-            );
-         */
 
         public RequestController()
         {
@@ -46,6 +27,8 @@ namespace verklega.Controllers
 
         public ActionResult Index()
         {
+            //Linq query to join the tables Requests, Subtitles and Languages where the ID matches.
+            //Used to show the title of the Subtitle in the Request index.
             var showRequests = (from Req in reqRepo.GetRequests()
                                 join Title in reqRepo.GetTitle() on Req.S_ID equals Title.ID
                                 join Lang in reqRepo.GetLanguage() on Title.L_ID equals Lang.ID

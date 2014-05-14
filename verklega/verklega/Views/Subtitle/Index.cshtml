@@ -4,14 +4,29 @@
     ViewBag.Title = "Index";
 }
 
-<ul>
-    @foreach(var sub in Model)
-          {
-        <li>@sub.Title</li>
-          }
+<table class="table">
+    <tr>
+        <th>
+            User
+        </th>
+        <th>
+            Subtitles
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                Mucho Likes! Grande!
+            </td>
+        </tr>
     }
-</ul>
-
-
-
-<h2>Index</h2>
+</table>

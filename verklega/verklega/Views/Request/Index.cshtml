@@ -4,12 +4,35 @@
 }
 
 <h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            Notandi
+        </th>
+        <th>
+            Skjátexti
+        </th>
+        <th>
+            Tungumál
+        </th>
+        <th></th>
+    </tr>
 
-<ul>
-    @foreach (var ba in Model)
+    @foreach (var item in Model)
     {
-        <li>@ba.ID</li>
-        <li>@ba.Subtitle.Title</li>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtitle.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtitle.L_ID)
+            </td>
+            <td>
+                Mucho Likes! Grande!
+            </td>
+        </tr>
     }
-</ul>
-
+</table>
