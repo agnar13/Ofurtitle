@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+<link rel="stylesheet" type="text/css" href="Site.css" />
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,6 +11,21 @@
 
 </head>
 <body>
+    <h1>S&#237;&#240;an! </h1>
+    <div>
+        <input type="text" />
+        <select>
+            <option value="" disabled="disabled" selected="selected"> Flokkar </option>
+            <option value="1"> Kvikmyndir </option>
+            <option value="1"> &#254;&#230;ttir </option>
+            <option value="1"> N&#253;legt </option>
+            <option value="2"> Vins&#230;lt </option>
+        </select>
+        @Html.ActionLink("Leita", "SearchSubtitle", "Subtitle")
+        <br />
+        @Html.ActionLink("Skoða beiðni", "Index", "Request")
+        @Html.ActionLink("Setja inn Skjátexta", "Create", "Subtitle")
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -33,7 +50,6 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
