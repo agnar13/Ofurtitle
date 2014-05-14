@@ -44,6 +44,7 @@ namespace verklega.Controllers
         public void Create(Request request)
         {
             reqRepo.Insert(request);
+            reqRepo.SaveChanges();
         }
 	}
 }

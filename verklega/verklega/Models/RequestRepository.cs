@@ -35,6 +35,11 @@ namespace verklega.Models
         public void Insert(Request request)
         {
             context.Requests.Add(request);
+            //context.SaveChanges();
+        }
+
+        public void SaveChanges()
+        {
             context.SaveChanges();
         }
 

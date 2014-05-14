@@ -13,20 +13,21 @@ namespace verklega.Controllers
 
     public class ParseResult : SubtitleLine
     {
-        public List<LineTranslation> Lines = new List<LineTranslation>();
-
+        public List<LineTranslation> Lines { get; set; }
+        public ParseResult()
+        {
+            Lines = new List<LineTranslation>();
+        }
     }
 
     public class SubtitleController : Controller
     {
-        
         // Controller talks to Interface. Interface talks to Repository. Repository talks to database.
         // an instance of subRepo is declared??
         private ISubtitleRepository subRepo;
 
          public SubtitleController()
         {
-
             this.subRepo = new SubtitleRepository(new AppDataContext());
         }
 
@@ -81,7 +82,7 @@ namespace verklega.Controllers
             if (ModelState.IsValid)
             {
                 subRepo.Insert(subtitle);
-                //subRepo.SaveChanges();
+                subRepo.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -225,6 +226,7 @@ namespace verklega.Controllers
                 var Smuu = Parse(result);
                 //Sendir gögnin í parse result.
             }
+           
             return RedirectToAction("ViewSubtitle");
             //Sends the content into the parser in ViewSubtitle.
         }
