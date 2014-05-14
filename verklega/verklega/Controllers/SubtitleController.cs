@@ -219,10 +219,10 @@ namespace verklega.Controllers
 
         public ActionResult SearchSubtitle()
         {
-            /*var showsubtitles = from Title in subRepo.GetSubtitles()
+            var showsubtitles = from Title in subRepo.GetSubtitles()
                                 select Title;
-            return View(showsubtitles.ToList());*/
-            return View();
+            return View(showsubtitles.ToList());
+           // return View();
         }
         public ActionResult ViewSubtitle()
         {

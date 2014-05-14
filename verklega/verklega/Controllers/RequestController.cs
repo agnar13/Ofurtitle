@@ -32,12 +32,6 @@ namespace verklega.Controllers
         {                       // GetRequests returns a list of Requests
             var ShowRequest = from ID in reqRepo.GetRequests()
                                 select ID;
-            // the list is sent to view
-            /*if (ShowRequest == null)
-            {
-                //throw a meaningful exception or give some useful feedback to the user!
-                Console.WriteLine("showrequest == null! ");
-            }*/
             return View(ShowRequest.ToList());
         }
 
