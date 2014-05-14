@@ -11,8 +11,9 @@ namespace verklega.Models
     public interface IRequestRepository
     {
         IEnumerable<Request> GetRequests();
-        void Insert(Request request);
-
-        
+        IEnumerable<Subtitle> GetTitle();
+        IEnumerable<Language> GetLanguage();
+        void Insert(Request request);       
     }
 }
+

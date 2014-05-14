@@ -12,7 +12,7 @@ namespace verklega.Controllers
 {
     public class RequestController : Controller
     {
-         //private IRequestRepository reqRepo = null;
+
         private IRequestRepository reqRepo;
 
          public RequestController()
@@ -21,31 +21,24 @@ namespace verklega.Controllers
             this.reqRepo = new RequestRepository(new AppDataContext());
         }
 
-         public RequestController(IRequestRepository reqRepo)
-         {
-             this.reqRepo = reqRepo;
-         }
-
-        //
-        // GET: /Request/
-        public ActionResult Index()
-        {                       // GetRequests returns a list of Requests
-           /* var showRequests = (from Req in reqRepo.GetRequests()
-                                join Title in reqRepo.GetTitle() on Req.S_ID equals Title.ID
-                                join Lang in reqRepo.GetLanguages() on Title.L_ID equals Lang.ID
-                                where Title.ID == Req.S_ID
-                                select Req).ToList();
-            return View(showRequests);*/
-
-            
-            var ShowRequest = from ID in reqRepo.GetRequests()
-                                select ID;
-            return View(ShowRequest.ToList());
+        public RequestController(IRequestRepository reqRepo)
+        {
+            this.reqRepo = reqRepo;
         }
 
-        public ActionResult ViewRequest(List<string> listofString)
+        public ActionResult Index()
+        {                       // GetRequests returns a list of Requests
+            var showRequests = (from Req in reqRepo.GetRequests()
+                                join Title in reqRepo.GetTitle() on Req.S_ID equals Title.ID
+                                join Lang in reqRepo.GetLanguage() on Title.L_ID equals Lang.ID
+                                where Title.ID == Req.S_ID
+                                select Req).ToList();
+            return View(showRequests);
+        }
+
+        public ActionResult ViewRequest()
         {
-            return View(listofString);
+            return View();
         }
 
         public void Create(Request request)

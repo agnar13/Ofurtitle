@@ -9,6 +9,7 @@ namespace verklega.Models
     public class RequestRepository : IRequestRepository
     {
         // setup a connection to the database through AppDataContext
+
         private AppDataContext context;
 
         public RequestRepository(AppDataContext context)
@@ -21,9 +22,18 @@ namespace verklega.Models
             return context.Requests.ToList();
         }
 
+        public IEnumerable<Subtitle> GetTitle()
+        {
+            return context.Subtitles.ToList();
+        }
+
+        public IEnumerable<Language> GetLanguage()
+        {
+            return context.Languages.ToList();
+        }
+        
         public void Insert(Request request)
         {
-            // Add a new Request object to the Requests table
             context.Requests.Add(request);
             context.SaveChanges();
         }

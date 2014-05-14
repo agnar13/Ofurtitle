@@ -13,7 +13,8 @@ namespace verklega.Controllers
 
     public class ParseResult : SubtitleLine
     {
-        public List<LineTranslation> Lines { get; set; }
+        public List<LineTranslation> Lines = new List<LineTranslation>();
+
     }
 
     public class SubtitleController : Controller
@@ -131,9 +132,9 @@ namespace verklega.Controllers
 
         /*
         // GET: /Subtitle/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            if (id == null)
+            /*if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -143,7 +144,7 @@ namespace verklega.Controllers
             {
                 return HttpNotFound();
             }
-            return View(subtitle);
+            return View("Index");
         }
          */
 
@@ -167,6 +168,7 @@ namespace verklega.Controllers
             }
             base.Dispose(disposing);
         }*/
+
         private IEnumerable<ParseResult> Parse(string content)
         //Creates a countable list out of the content.
         {
@@ -227,12 +229,14 @@ namespace verklega.Controllers
             //Sends the content into the parser in ViewSubtitle.
         }
 
+
+
         public ActionResult SearchSubtitle()
         {
-            var showsubtitles = from Title in subRepo.GetSubtitles()
+            /*var showsubtitles = from Title in subRepo.GetSubtitles()
                                 select Title;
-            return View(showsubtitles.ToList());
-           // return View();
+            return View(showsubtitles.ToList());*/
+           return View();
         }
         public ActionResult ViewSubtitle()
         {
