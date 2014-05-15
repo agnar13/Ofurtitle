@@ -4,6 +4,20 @@
     ViewBag.Title = "Index";
 }
 <link rel="stylesheet" type="text/css" href="Site.css" />
+<h2>Leitarniðurstöður</h2>
+
+<p>
+    @Html.ActionLink("Leita", "Index", "Subtitle")
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        @Html.TextBox("searchString") <br />
+        <input type="submit" value="Leita" />
+    </p>
+    }
+</p>
+
 
 <table class="table">
     <tr>
@@ -26,9 +40,12 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                Mucho Likes! Grande!
+                @Html.DisplayFor(modelItem => item.L_ID)
             </td>
             <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
         </tr>
     }
 </table>
+
+
+

@@ -22,10 +22,11 @@ namespace verklega.Controllers
 
     public class SubtitleController : Controller
     {
-        // Controller talks to Interface. Interface talks to Repository. Repository talks to database.
-        // an instance of subRepo is declared??
+        // An instance of the interface ISubtitleRepository is declared.
+        // The interface then talks to the repository which in turn talks to the database.
         private ISubtitleRepository subRepo;
 
+        //**Constructors
          public SubtitleController()
         {
             this.subRepo = new SubtitleRepository(new AppDataContext());
@@ -35,48 +36,35 @@ namespace verklega.Controllers
          {
              this.subRepo = subRepo;
          }
-
+        //**
 
         // GET: /Subtitle/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
                                          // GetSubtitles returns a list of Subtitles
             var showsubtitles = from Title in subRepo.GetSubtitles()
                             select Title;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                showsubtitles = showsubtitles.Where(s => s.Title.Contains(searchString));
+            }
+
             // the list is sent to view
             return View(showsubtitles.ToList());
-            //return View();
         }
-
-
-        /*
-        // GET: /Subtitle/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Subtitles subtitles = db.Subtitles.Find(id);
-            if (subtitles == null)
-            {
-                return HttpNotFound();
-            }
-            return View(subtitles);
-        }*/
-
         
         // GET: /Subtitle/Create
         public ActionResult Create()
         {
             ViewBag.Languages = subRepo.GetLanguages().Select(lang => new SelectListItem() { Text = lang.TextLanguage, Value = lang.ID.ToString() }).ToList();
+            ViewBag.Category = subRepo.GetSubtitles().Select(Cat => new SelectListItem() { Text = Cat.Category, Value = Cat.ID.ToString() }).ToList();
            
             return View();
         }
 
         // POST: /Subtitle/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="ID,U_ID,L_ID,Title,Category")] Subtitle subtitle)
@@ -90,10 +78,6 @@ namespace verklega.Controllers
 
            /*ViewBag.L_ID = new SelectList(subRepo.Languages, "ID", "TextLanguage", subtitles.L_ID);
             ViewBag.U_ID = new SelectList(subRepo.Users, "ID", "Name", subtitles.U_ID);*/
-
-           
- 
-
             return View(subtitle);
         }
 
@@ -115,66 +99,6 @@ namespace verklega.Controllers
             ViewBag.U_ID = new SelectList(db.Users, "ID", "Name", subtitles.U_ID);*/
             return View();
         }
-
-        // POST: /Subtitle/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        /*
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,U_ID,L_ID,Title,Category")] Subtitles subtitles)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(subtitles).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.L_ID = new SelectList(db.Languages, "ID", "TextLanguage", subtitles.L_ID);
-            ViewBag.U_ID = new SelectList(db.Users, "ID", "Name", subtitles.U_ID);
-            return View(subtitles);
-        }
-        */
-        
-
-        /*
-        // GET: /Subtitle/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            /*if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Subtitle subtitle = subRepo.GetSubtitleByID(id);
-            
-            if (subtitle == null)
-            {
-                return HttpNotFound();
-            }
-            return View("Index");
-        }
-         */
-
-
-        /*
-        // POST: /Subtitle/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-           
-            return RedirectToAction("Index");
-        }
-        
-        
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }*/
 
         private IEnumerable<ParseResult> Parse(string content)
         //Creates a countable list out of the content.

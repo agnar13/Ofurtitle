@@ -77,5 +77,11 @@ namespace verklega.Models
         {
             return context.Languages.ToList();
         }
+
+        public IEnumerable<Subtitle> GetCategory()
+        {
+            return context.Subtitles.ToList();
+        }
+
     }
 }
