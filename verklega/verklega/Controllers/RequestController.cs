@@ -41,10 +41,11 @@ namespace verklega.Controllers
 
         public ActionResult ViewRequest()
         {
+            Console.WriteLine("bla");
             return View();
         }
 
-        public void Create(Request request)
+        public void CreateRequest(Request request)
         {
             reqRepo.Insert(request);
             reqRepo.SaveChanges();

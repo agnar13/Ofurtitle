@@ -12,21 +12,25 @@ namespace verklega.Models
 
         private AppDataContext context;
 
+        // constructor?
         public RequestRepository(AppDataContext context)
         {
             this.context = context;
         }
 
+        // A function that returns a list of requests
         public IEnumerable<Request> GetRequests()
         {
             return context.Requests.ToList();
         }
 
+        // A function that returns a list of subtitles
         public IEnumerable<Subtitle> GetTitle()
         {
             return context.Subtitles.ToList();
         }
 
+        // Returns a list of languages ffrom the database
         public IEnumerable<Language> GetLanguage()
         {
             return context.Languages.ToList();
@@ -35,7 +39,6 @@ namespace verklega.Models
         public void Insert(Request request)
         {
             context.Requests.Add(request);
-            //context.SaveChanges();
         }
 
         public void SaveChanges()

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<verklega.Models.Subtitle>
+
 @{
     ViewBag.Title = "ViewSubtitle";
 }
@@ -34,6 +35,13 @@
     <h3> Umm&#230;li </h3>
     <div>
         insert comment author here plz
-        <input type="button" id="CommentReply" value="Breyta" /><br />
+        <!--<input type="button" id="CommentReply" value="Breyta" /><br /> -->
         <textarea id="ReplyComment" rows="3" cols="35"></textarea>
     </div>
+
+        <!-- Hérna á að vera hægt að búa til nýja beiðni þegar ýtt er á þar til gerðan takka. 
+            Er hægt að kalla á Create fallið í RequestController til þess að búa til nýja beiðni-->           
+    <div>
+        <input type="button" id="PostRequest" value="Óska eftir þýðingu á þessu myndefni" />
+    </div>
+        
