@@ -4,16 +4,16 @@
     ViewBag.Title = "Index";
 }
 <link rel="stylesheet" type="text/css" href="Site.css" />
-<h2>Leitarniðurstöður</h2>
+<h2>Skjátextar</h2>
 
 <p>
-    @Html.ActionLink("Leita", "Index", "Subtitle")
+    
 
     @using (Html.BeginForm())
     {
     <p>
         @Html.TextBox("searchString") <br />
-        <input type="submit" value="Leita" />
+        <input type="submit" value="Leita að skjátexta" />
     </p>
     }
 </p>
@@ -22,10 +22,13 @@
 <table class="table">
     <tr>
         <th>
-            User
+            Sett inn af
         </th>
         <th>
-            Subtitles
+            Heiti myndefnis
+        </th>
+        <th>
+            Tungumál
         </th>
         <th></th>
     </tr>
