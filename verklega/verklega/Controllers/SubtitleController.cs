@@ -43,14 +43,18 @@ namespace verklega.Controllers
         {
                                          // GetSubtitles returns a list of Subtitles
             var showsubtitles = from Title in subRepo.GetSubtitles()
-                            select Title;
+                                join Lang in subRepo.GetLanguages() on Title.L_ID equals Lang.ID
+                                select Title;
+                                //join Lang in subRepo.GetLanguages() on Title.L_ID equals Lang.ID
+                                //select new { Title.Title, Lang.TextLanguage };
+                                //select Title;
 
             if (!String.IsNullOrEmpty(searchString))
-            {
+            {   // searches the list looking for matches with the search string
                 showsubtitles = showsubtitles.Where(s => s.Title.Contains(searchString));
             }
 
-            // the list is sent to view
+            // and outcome is sent to the view
             return View(showsubtitles.ToList());
         }
         
