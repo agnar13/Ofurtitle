@@ -11,20 +11,12 @@
 </head>
 <body>
     <h1><a href="@Url.Action("Index", "Home")"><img src="http://i.imgur.com/7eehxKT.png?1" alt="WebLogo" width="90" height="90" /></a>tra</h1>
-    <div class="MenuBar">
-        <input type="text" />
-        <select>
-            <option value="" disabled="disabled" selected="selected"> Flokkar </option>
-            <option value="1"> Kvikmyndir </option>
-            <option value="1"> &#254;&#230;ttir </option>
-            <option value="1"> N&#253;legt </option>
-            <option value="2"> Vins&#230;lt </option>
-        </select>
-        @Html.ActionLink("Leita", "SearchSubtitle", "Subtitle")
+
         <br />
+        @Html.ActionLink("Skoða skjátexta", "Index", "Subtitle")
         @Html.ActionLink("Skoða beiðni", "Index", "Request")
         @Html.ActionLink("Setja inn Skjátexta", "Create", "Subtitle")
-    </div>
+ 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">

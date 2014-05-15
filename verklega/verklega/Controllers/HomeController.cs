@@ -16,11 +16,6 @@ namespace verklega.Controllers
             m_repository = new AppRepository();
         }
 
-        /*public HomeController(IAppRepository rep)
-        {
-            m_repository = rep;
-        }*/
-
 
         public ActionResult Index()
         {
@@ -93,12 +88,30 @@ namespace verklega.Controllers
 
             return View();
         }
-
+        /*
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "bla";
 
             return View();
+        }*/
+        
+        public ActionResult Contact(string searchString) 
+        {           
+            var movies = from m in m_repository.GetLanguages()
+                         select m; 
+ 
+            if (!String.IsNullOrEmpty(searchString)) 
+            { 
+                movies = movies.Where(s => s.TextLanguage.Contains(searchString)); 
+            } 
+ 
+            return View(movies); 
         }
+          
+          
+
+
     }
 }
