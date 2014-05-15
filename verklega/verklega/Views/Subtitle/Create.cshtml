@@ -5,30 +5,6 @@
 
 <link rel="stylesheet" type="text/css" href="Site.css" />
  
-<div>
-        <h2> Setja inn Skj&aacute;texta </h2>
-        <label for="Titill">Titill:	 </label>
-        <input type="text" id="Titill" name="Titill" /><br />
-        <select>
-            <option value="group">Flokkur</option>
-            <option value="child">Barnaefni</option>
-            <option value="flipp">Flipp</option>
-            <option value="fun">Gr&iacute;n</option>
-            <option value="etc">og svo framvegis</option>
-        </select><br />
-        <select>
-            <option value="group">Tungum&aacute;l</option>
-            <option value="child">&iacute;slenska</option>
-            <option value="flipp">enska</option>
-            <option value="fun">franska</option>
-            <option value="etc">og svo framvegis</option>
-        </select><br />
-        <label for="browse">skr&aacute; :	 </label>
-        <input type="text" id="AddSub" name="browse" />
-        <input type="button" id="Create" value="Leita af skr&aacute;" /><br />
-        <textarea rows="10" cols="50"></textarea>
-    </div>
-
     <form action="AddSubtitle" method="post" enctype="multipart/form-data">
 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -36,7 +12,10 @@
         @Html.DropDownListFor(model => model.L_ID, (IEnumerable<SelectListItem>)ViewBag.Languages)
     </div>
     <div>
-        @Html.LabelFor(model => model.Title, "Tititll")
+        @Html.DropDownListFor(model => model.Category, (IEnumerable<SelectListItem>)ViewBag.Category)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Title, "Titill")
         @Html.TextBoxFor(model => model.Title)
     </div>
     

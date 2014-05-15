@@ -15,6 +15,7 @@ namespace verklega.Controllers
 
         private IRequestRepository reqRepo;
 
+        // Constructors
         public RequestController()
         {
 
@@ -44,7 +45,7 @@ namespace verklega.Controllers
             return View();
         }
 
-        public void Create(Request request)
+        public void CreateRequest(Request request)
         {
             reqRepo.Insert(request);
             reqRepo.SaveChanges();
