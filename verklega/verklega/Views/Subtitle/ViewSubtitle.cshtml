@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" type="text/css" href="Site.css" />
 
-    <h2>Bangs&iacute;mon </h2>
+    <h2>Subtitle.Title</h2>
   <table>
         <tbody>
             <tr>
@@ -34,14 +34,26 @@
     </div>
     <h3> Umm&#230;li </h3>
     <div>
-        insert comment author here plz
-        <!--<input type="button" id="CommentReply" value="Breyta" /><br /> -->
+        Settu inn ummæli
+        <input type="button" id="CommentReply" value="Pósta" /><br />
         <textarea id="ReplyComment" rows="3" cols="35"></textarea>
     </div>
 
-        <!-- Hérna á að vera hægt að búa til nýja beiðni þegar ýtt er á þar til gerðan takka. 
-            Er hægt að kalla á Create fallið í RequestController til þess að búa til nýja beiðni-->           
+        <!-- Navigatar á nýja síðu -> ViewRequest. 
+            Hérna á að vera hægt að búa til nýja beiðni þegar ýtt er á þar til gerðan takka. 
+            Þyrftum að geta kallað á CreateRequest fallið í RequestController sem býr til nýtt
+            request object. Hérna þurfum við líka að grípa Subtiltle.ID og tehgja það við beiðnina
+            -->           
     <div>
-        <input type="button" id="PostRequest" value="Óska eftir þýðingu á þessu myndefni" />
-    </div>
+        @Html.ActionLink("text text", "ViewRequest" , "Request" )
+            <input type="button" id="PostRequest" value="Senda beiðni - prufa" />
+            @using (Html.BeginForm("ViewRequest", "Request")) 
+            { 
+                <input type="submit" value="Óska eftir þýðingu á þessu myndefni" />
+                <p>á eftirfarandi tungumáli: DROPDOWN vantar</p>
+                <div>
+                </div>
+            }
+        
+</div>
         
