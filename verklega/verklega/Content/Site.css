@@ -1,22 +1,54 @@
 ﻿h1{
-font-family:'Hobo Std';
-color:#000;
-background: rgba(50, 28, 107, 0.5);
+font-family:'Segoe Print';
+font-size: 55px;
+color:rgba(195, 198, 198, 0.5);
+/*border-top: 0px solid rgb(36, 21, 78);*/
+border-left: 20px solid rgba(36, 21, 78, 0.5);
+}
+.MenuBar, h1{
+    background: rgba(36, 21, 78, 0.5);
+    border-right: 5px solid rgba(36, 21, 78, 0.5);
+    /*border-bottom: 5px solid rgb(36, 21, 78);*/
+    margin: auto;
+}
+.MenuBar{
+    /*border-top: 5px solid rgb(36, 21, 78);*/
+    border-bottom: 5px solid rgba(36, 21, 78, 0.5);
+    border-left: 113px solid rgba(36, 21, 78, 0.5);
 }
 body {
 padding-top: 50px;
 padding-bottom: 20px;
 font-family:Arial;
-color:#000;
-background: rgba(243, 255, 244, 0.5)
+color:rgba(25, 15, 53, 0.5);
+background: rgb(228, 228, 228);
 }
 .navbar {
-background: rgba(50, 28, 107, 0.5);
+background: rgba(36, 21, 78, 0.5);
 background-image: none;
+margin: 0;
+border: hidden;
+}
+.navbar-inverse .navbar-nav > li > a, a {
+  color: rgba(205, 206, 205, 0.5);
+  text-decoration: none;
 }
 
-.div {
-color: #321c6b;
+a.Register { 
+    font-weight:bold;
+    color:rgba(36, 21, 78, 0.5);
+}
+
+a.Register:hover { 
+    font-weight:bold;
+    color: rgba(54, 2, 198, 0.5);
+
+}
+
+a:hover,
+a:focus {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: underline;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -31,19 +63,19 @@ max-width: 280px;
 }
 /* styles for validation helpers */
 .field-validation-error {
-background: rgba(243, 255, 244, 0.5)
+background: rgb(255, 0, 0)
 }
 .field-validation-valid {
 display: none;
 }
 input.input-validation-error {
-border: 1px solid #b94a48;
+border: 1px solid rgb(255, 0, 0);
 }
 input[type="checkbox"].input-validation-error {
 border: 0 none;
 }
 .validation-summary-errors {
-color: #b94a48;
+color: #ff0000;
 }
 .validation-summary-valid {
 display: none;
