@@ -27,7 +27,7 @@ background-image: none;
 margin: 0;
 border: hidden;
 }
-/*All of the a. or a: control the style of all links*/
+/* a. or a: control the style of the links*/
 .navbar-inverse .navbar-nav > li > a, a {
   color: rgb(205, 206, 205);
   text-decoration: none;
