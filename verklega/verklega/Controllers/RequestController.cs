@@ -41,7 +41,6 @@ namespace verklega.Controllers
 
         public ActionResult ViewRequest()
         {
-            Console.WriteLine("bla");
             return View();
         }
 
