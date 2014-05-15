@@ -4,7 +4,7 @@ font-size: 55px;
 color:rgb(195, 198, 198);
 border-left: 20px solid rgb(36, 21, 78);
 }
-/*h1, menuBar and .navbar control the permanent border at the top*/
+/*h1, MenuBar and .navbar control the permanent border at the top*/
 .MenuBar, h1{
     background: rgb(36, 21, 78);
     border-right: 5px solid rgb(36, 21, 78);
