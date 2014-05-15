@@ -13,12 +13,12 @@ namespace verklega.Models
     {
         IEnumerable<Subtitle> GetSubtitles();
         Subtitle GetSubtitleByID(int id);
-        void Insert(Subtitle subtitle);
+        void InsertSubtitle(Subtitle subtitle);
         //void Update(Subtitle subtitle);
         void Remove(int id);
         //void SearchSub(string subTitle);
         void SaveChanges();
-        void InsertSLine(SubtitleLine subtitleline);
+        void InsertSubtitleLine(SubtitleLine subtitleline);
         
 
         /*
@@ -29,6 +29,10 @@ namespace verklega.Models
 
         
         //void Edit(Student student);
- 
+
+
+        void InsertLineTranslation(LineTranslation line);
+
+        IEnumerable<Language> GetLanguages();
     }
 }

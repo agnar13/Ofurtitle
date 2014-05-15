@@ -1,4 +1,4 @@
-﻿   
+﻿@model verklega.Models.Subtitle
 @{
     ViewBag.Title = "Create";
 }
@@ -31,6 +31,16 @@
     <form action="AddSubtitle" method="post" enctype="multipart/form-data">
 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    <div>
+        @Html.DropDownListFor(model => model.L_ID, (IEnumerable<SelectListItem>)ViewBag.Languages)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Title, "Tititll")
+        @Html.TextBoxFor(model => model.Title)
+    </div>
+    
+    
+    
     <input type="file" name="file" />
     <input type="submit" value="Setja inn" id="ButtonSubmit"/>
  <!--   if (ViewData["Success"] !="")

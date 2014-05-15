@@ -26,7 +26,7 @@ namespace verklega.Models
             return context.Subtitles.Find(id);
         }
 
-        public void Insert(Subtitle subtitle)
+        public void InsertSubtitle(Subtitle subtitle)
         {
             // Add a new subtitle object to the Subtitles table
             context.Subtitles.Add(subtitle);
@@ -52,14 +52,25 @@ namespace verklega.Models
             
         }*/
 
-        public void InsertSLine(SubtitleLine subtitleline)
+        public void InsertSubtitleLine(SubtitleLine subtitleline)
         {
             context.SubtitleLines.Add(subtitleline);
+        }
+
+        public void InsertLineTranslation(LineTranslation line)
+        {
+            context.LineTranslations.Add(line);
         }
 
         public void SaveChanges()
         {
             context.SaveChanges();
+        }
+
+
+        public IEnumerable<Language> GetLanguages()
+        {
+            return context.Languages.ToList();
         }
     }
 }

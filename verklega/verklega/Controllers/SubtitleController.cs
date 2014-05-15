@@ -69,6 +69,8 @@ namespace verklega.Controllers
         // GET: /Subtitle/Create
         public ActionResult Create()
         {
+            ViewBag.Languages = subRepo.GetLanguages().Select(lang => new SelectListItem() { Text = lang.TextLanguage, Value = lang.ID.ToString() }).ToList();
+           
             return View();
         }
 
@@ -81,13 +83,17 @@ namespace verklega.Controllers
         {
             if (ModelState.IsValid)
             {
-                subRepo.Insert(subtitle);
+                subRepo.InsertSubtitle(subtitle);
                 subRepo.SaveChanges();
                 return RedirectToAction("Index");
             }
 
            /*ViewBag.L_ID = new SelectList(subRepo.Languages, "ID", "TextLanguage", subtitles.L_ID);
             ViewBag.U_ID = new SelectList(subRepo.Users, "ID", "Name", subtitles.U_ID);*/
+
+           
+ 
+
             return View(subtitle);
         }
 
@@ -209,9 +215,12 @@ namespace verklega.Controllers
             }
             return result;
         }
-        [HttpPost]
-        public ActionResult AddSubtitle(HttpPostedFileBase file)
+        [HttpPost,Authorize]
+        public ActionResult AddSubtitle(Subtitle subtitle, HttpPostedFileBase file)
         {
+            subtitle.U_ID = User.Identity.Name;
+            subRepo.InsertSubtitle(subtitle);
+            subRepo.SaveChanges();
 
             if (file.ContentLength > 0)
             //Ef skráinn inniheldur einhver gögn.
@@ -223,8 +232,22 @@ namespace verklega.Controllers
                 //Setur gögnin inn í buffer.
                 string result = System.Text.Encoding.UTF8.GetString(buffer);
                 //Breytir gögnunum í buffernum í streng.
-                var Smuu = Parse(result);
+                IEnumerable<ParseResult> parseResults = Parse(result);
                 //Sendir gögnin í parse result.
+
+                foreach (ParseResult parseResult in parseResults)
+                {
+                    subRepo.InsertSubtitleLine(parseResult);
+                    subRepo.SaveChanges();
+
+                    foreach (LineTranslation line in parseResult.Lines)
+                    {
+                        line.SL_ID = parseResult.ID;
+                        subRepo.InsertLineTranslation(line);
+                    }
+
+                    subRepo.SaveChanges();
+                }
             }
            
             return RedirectToAction("ViewSubtitle");
