@@ -10,10 +10,13 @@ namespace verklega.Models
     {
         public int ID { get; set; }
         public string U_ID { get; set; }
+        
         [ForeignKey("U_ID")]
         public virtual User User { get; set; }
+
         //public User User { get; set; }
         public int L_ID { get; set; }
+
         [ForeignKey("L_ID")]
         public virtual Language Language { get; set; }
         public string Title { get; set; }

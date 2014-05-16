@@ -34,5 +34,8 @@ namespace verklega.Models
         void InsertLineTranslation(LineTranslation line);
 
         IEnumerable<Language> GetLanguages();
+
+        IEnumerable<SubtitleLine> GetSubtitleLines(int subtitleId);
+        IEnumerable<LineTranslation> GetLineTranslations(int subtitleId);
     }
 }

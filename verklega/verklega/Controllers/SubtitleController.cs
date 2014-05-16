@@ -7,10 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using verklega.Models;
+using Microsoft.AspNet.Identity;
+using System.Text;
 
 namespace verklega.Controllers
 {
-
     public class ParseResult : SubtitleLine
     {
         public List<LineTranslation> Lines { get; set; }
@@ -47,29 +48,12 @@ namespace verklega.Controllers
             return View(showsubtitles.ToList());
             //return View();
         }
-
-
-        /*
-        // GET: /Subtitle/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Subtitles subtitles = db.Subtitles.Find(id);
-            if (subtitles == null)
-            {
-                return HttpNotFound();
-            }
-            return View(subtitles);
-        }*/
-
         
         // GET: /Subtitle/Create
         public ActionResult Create()
         {
             ViewBag.Languages = subRepo.GetLanguages().Select(lang => new SelectListItem() { Text = lang.TextLanguage, Value = lang.ID.ToString() }).ToList();
+            //ViewBag.Categories = subRepo.GetLanguages().Select(lang => new SelectListItem() { Text = lang.TextLanguage, Value = lang.ID.ToString() }).ToList();
            
             return View();
         }
@@ -116,6 +100,7 @@ namespace verklega.Controllers
             return View();
         }
 
+
         // POST: /Subtitle/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -135,46 +120,6 @@ namespace verklega.Controllers
             return View(subtitles);
         }
         */
-        
-
-        /*
-        // GET: /Subtitle/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            /*if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Subtitle subtitle = subRepo.GetSubtitleByID(id);
-            
-            if (subtitle == null)
-            {
-                return HttpNotFound();
-            }
-            return View("Index");
-        }
-         */
-
-
-        /*
-        // POST: /Subtitle/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-           
-            return RedirectToAction("Index");
-        }
-        
-        
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }*/
 
         private IEnumerable<ParseResult> Parse(string content)
         //Creates a countable list out of the content.
@@ -215,16 +160,16 @@ namespace verklega.Controllers
             }
             return result;
         }
-        [HttpPost,Authorize]
+        [HttpPost, Authorize]
         public ActionResult AddSubtitle(Subtitle subtitle, HttpPostedFileBase file)
         {
-            subtitle.U_ID = User.Identity.Name;
+            subtitle.U_ID = User.Identity.GetUserId();
+
             subRepo.InsertSubtitle(subtitle);
-            subRepo.SaveChanges();
 
             if (file.ContentLength > 0)
             //Ef skráinn inniheldur einhver gögn.
-            {
+            {   
                 //file.SaveAs(path); ( aðferð til að vista gögn locally)
                 byte[] buffer = new byte[file.ContentLength];
                 //Býr til buffer sem er jafn stór og skráin.
@@ -237,15 +182,16 @@ namespace verklega.Controllers
 
                 foreach (ParseResult parseResult in parseResults)
                 {
-                    subRepo.InsertSubtitleLine(parseResult);
-                    subRepo.SaveChanges();
-
                     foreach (LineTranslation line in parseResult.Lines)
                     {
-                        line.SL_ID = parseResult.ID;
+                        line.L_ID = subtitle.L_ID;
+                        line.U_ID = User.Identity.GetUserId();
+
                         subRepo.InsertLineTranslation(line);
                     }
 
+                    parseResult.S_ID = subtitle.ID;
+                    subRepo.InsertSubtitleLine(parseResult);
                     subRepo.SaveChanges();
                 }
             }
@@ -266,6 +212,37 @@ namespace verklega.Controllers
         public ActionResult ViewSubtitle()
         {
             return View();
+        }
+
+        public FileContentResult GetFile(int id)        
+        {
+            Subtitle subtitle = subRepo.GetSubtitleByID(id);
+            
+            IEnumerable<SubtitleLine> lines = subRepo.GetSubtitleLines(id);
+            IEnumerable<LineTranslation> translations = subRepo.GetLineTranslations(id);
+
+            ILookup<int,LineTranslation> translationsByLines = translations.ToLookup(trans => trans.SL_ID);
+
+            StringBuilder sb = new StringBuilder();
+
+            int counter = 1;
+            foreach (SubtitleLine line in lines)
+            {
+                sb.AppendLine(counter.ToString());
+                sb.AppendLine(line.Duration);
+                foreach (LineTranslation trans in translationsByLines[line.ID])
+                {
+                    sb.AppendLine(trans.Text);
+                }
+
+                sb.AppendLine();
+
+                counter++;
+            }
+
+            byte[] data = System.Text.Encoding.Default.GetBytes(sb.ToString());
+
+            return File(data, "text/plain", subtitle.Title + ".srt");
         }
 
     }
