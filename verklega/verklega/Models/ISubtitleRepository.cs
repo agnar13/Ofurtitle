@@ -14,25 +14,10 @@ namespace verklega.Models
         IEnumerable<Subtitle> GetSubtitles();
         Subtitle GetSubtitleByID(int id);
         void InsertSubtitle(Subtitle subtitle);
-        //void Update(Subtitle subtitle);
         void Remove(int id);
-        //void SearchSub(string subTitle);
         void SaveChanges();
-        void InsertSubtitleLine(SubtitleLine subtitleline);
-        
-
-        /*
-        void Create(Subtitle subtitle);
-        void Create([Bind(Include = "ID,U_ID,L_ID,Title,Category")] Subtitles subtitles);
-        void Delete(int? id);
-        void SaveChanges();*/
-
-        
-        //void Edit(Student student);
-
-
+        void InsertSubtitleLine(SubtitleLine subtitleline);       
         void InsertLineTranslation(LineTranslation line);
-
         IEnumerable<Language> GetLanguages();
 
         IEnumerable<SubtitleLine> GetSubtitleLines(int subtitleId);

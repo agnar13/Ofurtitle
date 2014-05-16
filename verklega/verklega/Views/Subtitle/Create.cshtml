@@ -2,20 +2,22 @@
 @{
     ViewBag.Title = "Create";
 }
+
 <link rel="stylesheet" type="text/css" href="Site.css" />
  
 
 @using (Html.BeginForm("AddSubtitle","Subtitle", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div>
+        @Html.LabelFor(model => model.L_ID, "Tungumál")
         @Html.DropDownListFor(model => model.L_ID, (IEnumerable<SelectListItem>)ViewBag.Languages)
     </div>
      <div>
+         @Html.LabelFor(model => model.Category, "Flokkur: ")
         @Html.TextBoxFor(model => model.Category)
     </div>   
-    
     <div>
-        @Html.LabelFor(model => model.Title, "Titill")
+        @Html.LabelFor(model => model.Title, "Titill: ")
         @Html.TextBoxFor(model => model.Title)
     </div>
     

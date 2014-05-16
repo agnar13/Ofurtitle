@@ -1,7 +1,11 @@
-﻿@{
+﻿@model IEnumerable<verklega.Models.Language>
+
+@{
     ViewBag.Title = "Contact";
 }
+
 <link rel="stylesheet" type="text/css" href="Site.css" />
+
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
@@ -16,3 +20,25 @@
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+<input type="text"/>
+
+<ul>
+    @foreach (var lang in Model)
+    {
+        <li>@lang.ID</li>
+        <li>@lang.TextLanguage</li>
+    }
+</ul>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Title: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Filter" />
+    </p>
+    }
+</p>

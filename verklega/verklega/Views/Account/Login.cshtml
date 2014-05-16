@@ -4,6 +4,8 @@
     ViewBag.Title = "Log in";
 }
 
+<link rel="stylesheet" type="text/css" href="Site.css" />
+
 <h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-8">
@@ -42,7 +44,7 @@
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Register", "Register", null, new { @class = "Register" }) if you don't have a local account.
+                    @Html.ActionLink("Register", "Register", null , new { @class = "Register" }) if you don't have a local account.
                 </p>
             }
         </section>

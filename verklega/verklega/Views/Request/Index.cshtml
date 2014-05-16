@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<verklega.Models.Request>
-
 @{
     ViewBag.Title = "Index";
 }
 <link rel="stylesheet" type="text/css" href="Site.css" />
-<h2>Index</h2>
+@Html.ActionLink("Leita", "Index", "Subtitle")
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.TextBox("InputString") <br />
+        <input type="submit" value="Leita" />
+    </p>
+}
+<h2>Yfirlit yfir bei&eth;ni</h2>
 <table class="table">
     <tr>
         <th>
@@ -16,7 +23,7 @@
         <th>
             Tungumál
         </th>
-        <th></th>
+        <th>Flokkur</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -28,10 +35,10 @@
                 @Html.DisplayFor(modelItem => item.Subtitle.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Subtitle.L_ID)
+                @Html.DisplayFor(modelItem => item.Subtitle.Language.TextLanguage)
             </td>
             <td>
-                Mucho Likes! Grande!
+                @Html.DisplayFor(modelItem => item.Subtitle.Category)
             </td>
         </tr>
     }

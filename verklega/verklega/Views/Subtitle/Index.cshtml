@@ -1,37 +1,52 @@
 ﻿@model IEnumerable<verklega.Models.Subtitle>
-
 @{
     ViewBag.Title = "Index";
 }
 <link rel="stylesheet" type="text/css" href="Site.css" />
+<h2>Skjátextar</h2>
+<p>
 
-<table class="table">
-    <tr>
-        <th>
-            User
-        </th>
-        <th>
-            Subtitles
-        </th>
-        <th></th>
-    </tr>
-    
-    @foreach (var item in Model)
+    @using (Html.BeginForm())
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                Mucho Likes! Grande!
-            </td>
-            <td><img src="http://i.imgur.com/iQDIVhA.png" alt="uppþumla" width="20" height="15" /></td>
-            <td>
-                @Html.ActionLink("Download", "GetFile", new { Id =  @item.ID })
-            </td>
-        </tr>
+    <p>
+        @Html.TextBox("searchString") <br />
+        <input type="submit" value="Leita að skjátexta" />
+    </p>
     }
-</table>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Sett inn af
+            </th>
+            <th>
+                Heiti myndefnis
+            </th>
+            <th>
+                Tungumál
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    <form action="ViewSubtitle" method="post" enctype="multipart/form-data">
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.ActionLink(item.Title, "ViewSubtitle", new { id = item.ID }, new { @class = "Title" })
+                        }
+                    </form>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language.TextLanguage)
+                </td>
+                <td>
+                    @Html.ActionLink("Download", "GetFile", new { Id = @item.ID }, new { @class = "Download" })
+                </td>
+            </tr>
+        }
+    </table>

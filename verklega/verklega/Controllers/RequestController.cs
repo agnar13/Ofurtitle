@@ -15,9 +15,9 @@ namespace verklega.Controllers
 
         private IRequestRepository reqRepo;
 
+        // Constructors
         public RequestController()
         {
-
             this.reqRepo = new RequestRepository(new AppDataContext());
         }
 
@@ -26,7 +26,7 @@ namespace verklega.Controllers
             this.reqRepo = reqRepo;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string InputString)
         {
             //Linq query to join the tables Requests, Subtitles and Languages where the ID matches.
             //Used to show the title of the Subtitle in the Request index.
@@ -35,8 +35,13 @@ namespace verklega.Controllers
                                 join Title in reqRepo.GetTitle() on Req.S_ID equals Title.ID
                                 join Lang in reqRepo.GetLanguage() on Title.L_ID equals Lang.ID
                                 where Title.ID == Req.S_ID
-                                select Req).ToList();
-            return View(showRequests);
+                                select Req);
+
+            if (!String.IsNullOrEmpty(InputString))
+            {
+                showRequests = showRequests.Where(s => s.Subtitle.Title.ToUpper().Contains(InputString.ToUpper()));
+            }
+            return View(showRequests.ToList());
         }
 
         public ActionResult ViewRequest()
@@ -44,7 +49,7 @@ namespace verklega.Controllers
             return View();
         }
 
-        public void Create(Request request)
+        public void CreateRequest(Request request)
         {
             reqRepo.Insert(request);
             reqRepo.SaveChanges();
