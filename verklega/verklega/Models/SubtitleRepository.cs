@@ -69,11 +69,13 @@ namespace verklega.Models
             return context.Languages.ToList();
         }
 
+        //Returns SubtitleLines that are linked to a certain subtitle ID.
         public IEnumerable<SubtitleLine> GetSubtitleLines(int subtitleId)
         {
             return context.SubtitleLines.Where(line => line.S_ID == subtitleId).ToList();
         }
 
+        //Returns GetLineTranslations that are linked to a certain SubtitleLine ID.
         public IEnumerable<LineTranslation> GetLineTranslations(int subtitleId)
         {
             return (from line in context.SubtitleLines

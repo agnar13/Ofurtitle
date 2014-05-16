@@ -8,11 +8,11 @@ namespace verklega.Models
 {
     public class RequestRepository : IRequestRepository
     {
-        // setup a connection to the database through AppDataContext
+        // Setup a connection to the database through AppDataContext
 
         private AppDataContext context;
 
-        // constructor?
+        // Constructor
         public RequestRepository(AppDataContext context)
         {
             this.context = context;

@@ -15,12 +15,13 @@ namespace verklega.Controllers
 
         private IRequestRepository reqRepo;
 
-        // Constructors
+        // Constructor
         public RequestController()
         {
             this.reqRepo = new RequestRepository(new AppDataContext());
         }
 
+        //Constructor
         public RequestController(IRequestRepository reqRepo)
         {
             this.reqRepo = reqRepo;
@@ -37,6 +38,8 @@ namespace verklega.Controllers
                                 where Title.ID == Req.S_ID
                                 select Req);
 
+            //Query that searches for InputString that the user has inserted into the search bar
+            //The search string is formatted so its not case sensitive.
             if (!String.IsNullOrEmpty(InputString))
             {
                 showRequests = showRequests.Where(s => s.Subtitle.Title.ToUpper().Contains(InputString.ToUpper()));
@@ -51,6 +54,7 @@ namespace verklega.Controllers
 
         public void CreateRequest(Request request)
         {
+            //Uses the built in function to insert into the Request table
             reqRepo.Insert(request);
             reqRepo.SaveChanges();
         }

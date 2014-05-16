@@ -14,7 +14,6 @@ namespace verklega.Models
         [ForeignKey("U_ID")]
         public virtual User User { get; set; }
 
-        //public User User { get; set; }
         public int L_ID { get; set; }
 
         [ForeignKey("L_ID")]
