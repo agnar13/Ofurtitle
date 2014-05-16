@@ -12,33 +12,33 @@
 <body>
     <h1><a href="@Url.Action("Index", "Home")"><img src="http://i.imgur.com/7eehxKT.png?1" alt="WebLogo" width="90" height="90" /></a>tra</h1>
 
-        <br />
+    <div class="MenuBar">
         @Html.ActionLink("Skoða skjátexta", "Index", "Subtitle")
         @Html.ActionLink("Skoða beiðni", "Index", "Request")
         @Html.ActionLink("Setja inn Skjátexta", "Create", "Subtitle")
- 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-            </div>
-            <div class="navbar-collapse collapse"> @Html.Partial("_LoginPartial") </div>
-        </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Letra - &Iacute;slensk skj&aacute;texta s&iacute;&eth;a</p>
-        </footer>
-    </div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+                </div>
+                <div class="navbar-collapse collapse"> @Html.Partial("_LoginPartial") </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Letra - &Iacute;slensk skj&aacute;texta s&iacute;&eth;a</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

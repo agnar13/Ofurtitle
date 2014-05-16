@@ -16,11 +16,12 @@ border-left: 20px solid rgb(36, 21, 78);
 }
 body {
 padding-top: 50px;
-padding-bottom: 20px;
+padding-bottom: 10px;
 font-family:Arial;
 color:rgb(25, 15, 53);
-background: rgb(228, 228, 228);
+background: rgb(238, 237, 237);
 }
+
 .navbar {
 background: rgb(36, 21, 78);
 background-image: none;
